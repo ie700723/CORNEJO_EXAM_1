@@ -25,12 +25,19 @@ while:
 	sw $t1, 4($sp)
 	sw $t2, 8($sp)
 	jal productmatrix
+	
+	sw $t0, 0($sp)
+	sw $t1, 4($sp)
+	sw $t2, 8($sp)
+	addi $sp, $sp, -12
+	add $t0, $t0, $v0
 
+	j while
 productmatrix:
 	lw $a0, 0($sp)
 	lw $a1, 4($sp)
 	lw $a2, 8($sp)
-	mul $t0, $a0, $a1
+	mul $v0, $a0, $a1
 	jr $ra
 	
 	
